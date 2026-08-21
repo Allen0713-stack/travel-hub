@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelHub 探索世界 | 旅遊景點指南</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
+
+  <!-- 頂部導航列 -->
+  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">✈️</span>
+        <span class="font-extrabold text-xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">TravelHub</span>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="#destinations" class="hover:text-blue-600 transition">熱門景點</a>
+        <a href="#categories" class="hover:text-blue-600 transition">探索分類</a>
+        <a href="#features" class="hover:text-blue-600 transition">行程特色</a>
+      </nav>
+      <div class="flex items-center space-x-3">
+        <button id="favoriteCountBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-rose-50 text-rose-600 text-sm font-semibold border border-rose-200">
+          <span>❤️ 收藏</span>
+          <span id="favBadge" class="bg-rose-500 text-white text-xs px-1.5 py-0.5 rounded-full">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero 英雄橫幅區 -->
+  <section class="relative bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-800 text-white py-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block py-1 px-3 rounded-full bg-white/20 text-xs font-semibold tracking-wider uppercase backdrop-blur-md mb-4">
+        🌏 跨電腦同步開發專案示範
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+        開啟你的下一趟精彩旅程
+      </h1>
+      <p class="text-blue-100 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+        搜尋世界各地的熱門景點，隨時規劃你的夢想假期。
+      </p>
+
+      <!-- 搜尋與篩選列 -->
+      <div class="bg-white p-2 sm:p-3 rounded-2xl shadow-xl max-w-2xl mx-auto flex flex-col sm:flex-row gap-2">
+        <div class="relative flex-1">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">🔍</span>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="搜尋國家、城市或景點名稱..."
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+          />
+        </div>
+        <select id="categorySelect" class="bg-slate-100 text-slate-700 px-4 py-2.5 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="all">所有分類 (全部)</option>
+          <option value="asia">亞洲精選</option>
+          <option value="europe">歐洲風情</option>
+          <option value="nature">自然生態</option>
+          <option value="culture">歷史人文</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主內容區 -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full" id="destinations">
+    <div class="flex justify-between items-center mb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900">熱門探索景點</h2>
+        <p class="text-slate-500 text-sm mt-1">即時展示來自各地旅人的最愛行程</p>
+      </div>
+      <div id="resultCount" class="text-sm font-medium text-slate-500">共 6 個景點</div>
+    </div>
+
+    <!-- 景點卡片網格 -->
+    <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 卡片將由 app.js 動態渲染 -->
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 TravelHub 跨電腦協同開發範例專案 · Built with Git & GitHub</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

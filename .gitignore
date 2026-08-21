@@ -1,0 +1,10 @@
+# 依賴套件與打包快取
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+
+# 敏感資訊與環境變數 (切勿上傳到 GitHub)
+.env
+.env.local
+*.pem
